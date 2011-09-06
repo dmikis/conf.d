@@ -1,0 +1,20 @@
+export LC_ALL="ru_RU.utf8"
+export LESSCHARSET=utf-8
+
+export GREP_OPTIONS="--color -r --exclude-dir=.git --exclude-dir=.svn"
+
+if [ -f ~/.bash_exports ]; then
+    . ~/.bash_exports
+fi
+
+set -o vi
+
+##
+# Setting up bash look-n-feel for git
+# https://github.com/git/git/tree/master/contrib/completion
+##
+if [ -f ~/.git-completion.bash ]; then
+    .  ~/.git-completion.bash
+fi
+
+PS1='[\u@\h \w$(__git_ps1 " (%s)")]\$ '
