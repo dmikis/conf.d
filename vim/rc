@@ -6,6 +6,7 @@ set expandtab
 set shiftwidth=4
 set number
 set nowrap
+set nocursorline nocursorcolumn
 
 filetype plugin on
 
