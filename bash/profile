@@ -11,7 +11,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-set -o vi
+#set -o vi
 
 ##
 # Setting up bash look-n-feel for git
@@ -21,4 +21,4 @@ if [ -f ~/.git-completion.bash ]; then
     .  ~/.git-completion.bash
 fi
 
-PS1='[\u@\h \w$(__git_ps1 " (%s)")]\$ '
+PS1='\[\033[01;32m\]\h\[\033[00m\]:\[\033[34m\]\w\[\033[00m\]#\[\033[31m\]$(__git_ps1 "%s")\[\033[00m\]\$ '
