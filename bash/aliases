@@ -1,4 +1,7 @@
-alias ls='ls --color=auto'
+if [ $(uname) != "Darwin" ]; then
+    alias ls='ls --color=auto'
+fi
+
 alias la='ls -lA'
 alias ll='ls -l'
 
