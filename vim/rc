@@ -1,16 +1,23 @@
 syntax on
 
+set encoding=utf8
+set fileencoding=utf8
+set fileencodings=utf8,cp1251
+set termencoding=utf-8
+
 set autoindent
 set smartindent
 set expandtab
 set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+
 set number
 set nowrap
 set nocursorline nocursorcolumn
 
 filetype plugin on
 
-set list listchars=tab:»·,trail:·
 autocmd BufWritePre * :%s/\s\+$//e
 
 " Задаем собственные функции для назначения имен заголовкам табов -->
