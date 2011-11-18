@@ -17,3 +17,9 @@ if [ -f ~/.vimrc ]; then
 fi
 
 /bin/ln -v -s ~/conf.d/vim/rc ~/.vimrc
+
+if [ -f ~/.tmux.conf ]; then
+    /bin/rm -v ~/.tmux.conf
+fi
+
+/bin/ln -v -s ~/conf.d/tmux/tmux.conf ~/.tmux.conf
