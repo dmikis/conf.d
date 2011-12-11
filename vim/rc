@@ -1,3 +1,5 @@
+language en_US.UTF-8
+
 syntax on
 
 set encoding=utf8
