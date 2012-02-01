@@ -1,0 +1,38 @@
+language en_US.UTF-8
+
+set t_Co=256
+
+set encoding=utf8
+set fileencoding=utf8
+set fileencodings=utf8,cp1251
+set termencoding=utf-8
+
+set autoindent
+set smartindent
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+
+set number
+set nowrap
+set nocursorline nocursorcolumn
+
+filetype plugin on
+
+autocmd BufWritePre * :%s/\s\+$//e
+
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'git://github.com/scrooloose/nerdtree'
+Bundle 'git://github.com/scrooloose/nerdcommenter'
+Bundle 'git://github.com/tarmolov/TabLineNumbers.vim'
+Bundle 'git://github.com/rainux/vim-desert-warm-256'
+
+syntax on
+colorscheme desert-warm-256
