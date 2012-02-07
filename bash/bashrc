@@ -61,6 +61,10 @@ if [ -f ~/.bash_aliases ]; then
    . ~/.bash_aliases
 fi
 
+if [ -f ~/.bash_exports ]; then
+    . ~/.bash_exports
+fi
+
 if [ $(uname) == 'Linux' ]; then
     LC_ALL='ru_RU.utf8'
     LESSCHARSET='utf-8'
