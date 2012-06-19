@@ -1,0 +1,44 @@
+[user]
+name = Kirill Dmitrenko
+email = /**/
+
+[alias]
+st = status
+ci = commit
+br = branch
+co = checkout
+unstage = reset HEAD --
+dic = diff --cached
+
+[color]
+ui = auto
+
+[color "diff"]
+meta =  yellow bold
+frag = magenta bold
+old = red bold
+new = green bold
+
+[color "status"]
+added = yellow bold
+changed = green bold
+untracked = cyan bold
+
+[color]
+ui = auto
+
+[color "diff"]
+meta =  yellow bold
+frag = magenta bold
+old = red bold
+new = green bold
+
+[color "status"]
+added = yellow bold
+changed = green bold
+untracked = cyan bold
+
+[branch]
+    autosetuprebase = always
+[gc]
+	auto = 0
