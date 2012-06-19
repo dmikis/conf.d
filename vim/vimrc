@@ -32,7 +32,7 @@ Bundle 'gmarik/vundle'
 Bundle 'git://github.com/scrooloose/nerdtree'
 Bundle 'git://github.com/scrooloose/nerdcommenter'
 Bundle 'git://github.com/tarmolov/TabLineNumbers.vim'
-undlet://github.com/tomasr/molokai' 'git://github.com/rainux/vim-desert-warm-256'
+Bundle 'git://github.com/tomasr/molokai'
 
 syntax on
 colorscheme molokai
