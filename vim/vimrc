@@ -16,7 +16,7 @@ set tabstop=4
 
 set number
 set nowrap
-set nocursorline nocursorcolumn
+set cursorline nocursorcolumn
 
 filetype plugin on
 
@@ -32,7 +32,7 @@ Bundle 'gmarik/vundle'
 Bundle 'git://github.com/scrooloose/nerdtree'
 Bundle 'git://github.com/scrooloose/nerdcommenter'
 Bundle 'git://github.com/tarmolov/TabLineNumbers.vim'
-Bundle 'git://github.com/rainux/vim-desert-warm-256'
+undlet://github.com/tomasr/molokai' 'git://github.com/rainux/vim-desert-warm-256'
 
 syntax on
-colorscheme desert-warm-256
+colorscheme molokai
