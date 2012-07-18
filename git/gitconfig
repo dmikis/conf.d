@@ -1,6 +1,6 @@
 [user]
 name = Kirill Dmitrenko
-email = /**/
+email = dmikis@yandex-team.ru
 
 [alias]
 st = status
@@ -13,30 +13,22 @@ dic = diff --cached
 [color]
 ui = auto
 
-[color "diff"]
-meta =  yellow bold
-frag = magenta bold
-old = red bold
-new = green bold
-
-[color "status"]
-added = yellow bold
-changed = green bold
-untracked = cyan bold
-
-[color]
-ui = auto
+[color "branch"]
+current = 118 bold
+local   = 81
+remote  = 161
 
 [color "diff"]
-meta =  yellow bold
-frag = magenta bold
-old = red bold
-new = green bold
+meta = 208 bold
+frag = 81
+old  = 161
+new  = 118
 
 [color "status"]
-added = yellow bold
-changed = green bold
-untracked = cyan bold
+added     = 208
+changed   = 118
+untracked = 81
+nobranch  = 161 bold
 
 [branch]
     autosetuprebase = always
