@@ -1,0 +1,16 @@
+OS=$(uname)
+
+# bash options
+export PROMPT_DIRTRIM=2 # show only last two dirs in \w placeholder
+
+# locale
+export LC_ALL="en_US.utf8"
+
+# editor
+export EDITOR="vim"
+
+# pager
+export PAGER="less"
+
+# grep
+export GREP_OPTIONS="--color -R --exclude-dir=.git --exclude-dir=.svn"

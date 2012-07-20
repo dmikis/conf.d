@@ -1,3 +1,7 @@
+# .bash_profile
+#
+# Just includes .bashrc
+
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi

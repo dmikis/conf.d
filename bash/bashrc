@@ -46,29 +46,69 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-if [ -f ~/.git-completion.bash ]; then
-    .  ~/.git-completion.bash
-fi
-
+# setup empty colors for warm tube terms...
+color_red=
+color_green=
+color_yellow=
+color_blue=
+color_off=
 if [ "$color_prompt" = yes ]; then
-    # \e[38;05;${i}m
-    PS1='\e[38;05;118m\h\e[38;05;255m:\e[38;05;81m\w$(__git_ps1 "\e[38;05;255m@\e[38;05;161m%s")\e[38;05;255m\$ '
-else
-    PS1='\h:\w#$(__git_ps1 "%s")\$ '
+    color_red='\[\033[38;05;161m\]'
+    color_green='\[\033[38;05;118m\]'
+    color_blue='\[\033[38;05;81m\]'
+    color_off='\[\033[38;05;255m\]'
 fi
 unset color_prompt force_color_prompt
 
+# set aliases
 if [ -f ~/.bash_aliases ]; then
    . ~/.bash_aliases
 fi
 
+# set evn vars
 if [ -f ~/.bash_exports ]; then
     . ~/.bash_exports
 fi
 
-if [ $(uname) == 'Linux' ]; then
-    LC_ALL='ru_RU.utf8'
-    LESSCHARSET='utf-8'
-fi
+# find out some info about current git repo
+function get_git_stats {
+    GIT_CURRENT_BRANCH=""
+    GIT_IS_DIRTY=""
+    GIT_UNPUSHED_COMMITS_NUM=""
 
-GREP_OPTIONS="--color -r --exclude-dir=.git --exclude-dir=.svn"
+    local GIT=$(which git 2> /dev/null)
+    [[ $? -ne 0 ]] && return;
+
+    local GIT_BRANCH=$($GIT symbolic-ref HEAD 2> /dev/null)
+    [[ $? -ne 0 ]] && return;
+
+    local GIT_UNCOMMITED_FILES=$($GIT status --porcelain 2> /dev/null)
+    [[ $? -ne 0 ]] && return;
+
+    GIT_CURRENT_BRANCH=${GIT_BRANCH#refs/heads/}
+    [[ -n $GIT_UNCOMMITED_FILES ]] && GIT_IS_DIRTY=true # oh, dirty, dirty git...
+    GIT_UNPUSHED_COMMITS_NUM=$($GIT log --oneline @{u}.. 2> /dev/null | wc -l)
+}
+
+function prompt_command {
+    local PS1_GIT=
+
+    get_git_stats
+
+    if [ ! -z $GIT_CURRENT_BRANCH ]; then
+        if [ -z $GIT_IS_DIRTY ]; then
+            PS1_GIT="<${color_green}${GIT_CURRENT_BRANCH}"
+        else
+            PS1_GIT="<${color_red}${GIT_CURRENT_BRANCH}"
+        fi
+        PS1_GIT="${PS1_GIT}${color_off}"
+        if [ $GIT_UNPUSHED_COMMITS_NUM -gt 0 ]; then
+            PS1_GIT="${PS1_GIT} ${color_red}${GIT_UNPUSHED_COMMITS_NUM}${color_off}"
+        fi
+        PS1_GIT="${PS1_GIT}>"
+    fi
+
+    PS1="${color_blue}\\h${color_off}:\\w${PS1_GIT}\\$ "
+}
+
+export PROMPT_COMMAND=prompt_command
