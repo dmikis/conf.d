@@ -97,15 +97,15 @@ function prompt_command {
 
     if [ ! -z $GIT_CURRENT_BRANCH ]; then
         if [ -z $GIT_IS_DIRTY ]; then
-            PS1_GIT="<${color_green}${GIT_CURRENT_BRANCH}"
+            PS1_GIT="[${color_green}${GIT_CURRENT_BRANCH}"
         else
-            PS1_GIT="<${color_red}${GIT_CURRENT_BRANCH}"
+            PS1_GIT="[${color_red}${GIT_CURRENT_BRANCH}"
         fi
         PS1_GIT="${PS1_GIT}${color_off}"
         if [ $GIT_UNPUSHED_COMMITS_NUM -gt 0 ]; then
             PS1_GIT="${PS1_GIT} ${color_red}${GIT_UNPUSHED_COMMITS_NUM}${color_off}"
         fi
-        PS1_GIT="${PS1_GIT}>"
+        PS1_GIT="${PS1_GIT}]"
     fi
 
     PS1="${color_blue}\\h${color_off}:\\w${PS1_GIT}\\$ "

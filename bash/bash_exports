@@ -1,5 +1,9 @@
 OS=$(uname)
 
+if [ $OS -eq "Darwin" ]; then
+    export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+fi
+
 # bash options
 export PROMPT_DIRTRIM=2 # show only last two dirs in \w placeholder
 
