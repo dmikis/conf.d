@@ -1,6 +1,6 @@
 OS=$(uname)
 
-if [ $OS -eq "Darwin" ]; then
+if [ $OS == "Darwin" ]; then
     export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 fi
 
@@ -8,7 +8,11 @@ fi
 export PROMPT_DIRTRIM=2 # show only last two dirs in \w placeholder
 
 # locale
-export LC_ALL="en_US.utf8"
+if [ $OS == "Linux" ]; then
+    export LC_ALL="en_US.utf8"
+else
+    export LC_ALL="en_US.UTF-8"
+fi
 
 # editor
 export EDITOR="vim"

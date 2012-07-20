@@ -4,6 +4,7 @@
 cp -v bash/bashrc       ~/.bashrc
 cp -v bash/bash_profile ~/.bash_profile
 cp -v bash/bash_aliases ~/.bash_aliases
+cp -v bash/bash_exports ~/.bash_exports
 
 cp -v git/gitconfig     ~/.gitconfig
 
