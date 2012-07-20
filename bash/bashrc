@@ -87,7 +87,7 @@ function get_git_stats {
 
     GIT_CURRENT_BRANCH=${GIT_BRANCH#refs/heads/}
     [[ -n $GIT_UNCOMMITED_FILES ]] && GIT_IS_DIRTY=true # oh, dirty, dirty git...
-    GIT_UNPUSHED_COMMITS_NUM=$($GIT log --oneline @{u}.. 2> /dev/null | wc -l)
+    GIT_UNPUSHED_COMMITS_NUM=$($GIT log --oneline @{u}.. 2> /dev/null | wc -l | tr -d ' ')
 }
 
 function prompt_command {
