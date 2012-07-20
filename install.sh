@@ -12,5 +12,4 @@ cp -v screen/screenrc   ~/.screenrc
 cp -v vim/vimrc         ~/.vimrc
 
 git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash > ~/.git-completion.bash
 
