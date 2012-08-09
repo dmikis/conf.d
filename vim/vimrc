@@ -4,7 +4,7 @@ set t_Co=256
 
 set encoding=utf8
 set fileencoding=utf8
-set fileencodings=utf8,cp1251
+set fileencodings=utf8
 set termencoding=utf-8
 
 set autoindent
@@ -13,6 +13,8 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
+
+set list listchars=tab:▸\ ,trail:·,extends:→,precedes:←,nbsp:×
 
 set number
 set nowrap
@@ -34,6 +36,10 @@ Bundle 'git://github.com/scrooloose/nerdcommenter'
 Bundle 'git://github.com/tarmolov/TabLineNumbers.vim'
 Bundle 'git://github.com/tomasr/molokai'
 Bundle 'git://github.com/vim-scripts/JavaScript-syntax'
+Bundle 'git://github.com/altercation/vim-colors-solarized.git'
 
 syntax on
-colorscheme molokai
+set background=dark
+let g:solarized_termcolors=256
+let g:solarized_contrast='high'
+colorscheme solarized

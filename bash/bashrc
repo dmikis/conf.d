@@ -108,7 +108,7 @@ function prompt_command {
         PS1_GIT="${PS1_GIT}]"
     fi
 
-    PS1="${color_blue}\\h${color_off}:\\w${PS1_GIT}\\$ "
+    PS1="\e[0m${color_blue}\\h${color_off}:\\w${PS1_GIT}\\$ "
 }
 
 export PROMPT_COMMAND=prompt_command
