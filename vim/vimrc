@@ -20,6 +20,11 @@ set number
 set nowrap
 set cursorline nocursorcolumn
 
+set uc=0
+set nobackup
+set noswapfile
+set nowb
+
 filetype plugin on
 
 autocmd BufWritePre * :%s/\s\+$//e
