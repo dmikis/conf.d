@@ -25,6 +25,9 @@ set nobackup
 set noswapfile
 set nowb
 
+set ls=2
+set ruler
+
 filetype plugin on
 
 autocmd BufWritePre * :%s/\s\+$//e
