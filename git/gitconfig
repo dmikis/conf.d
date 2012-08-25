@@ -1,6 +1,5 @@
-[user]
-name = Kirill Dmitrenko
-email = dmikis@yandex-team.ru
+[include]
+path = ~/.gitauthor ;
 
 [alias]
 st = status
