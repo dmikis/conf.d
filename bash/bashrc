@@ -93,10 +93,16 @@ function get_git_stats {
     GIT_UNPUSHED_COMMITS_NUM=$($GIT log --oneline @{u}.. 2> /dev/null | wc -l | tr -d ' ')
 }
 
+function get_jobs_status {
+    THERE_IS_JOBS=""
+    [[ $(jobs 2> /dev/null | wc -l) -ne 0 ]] && THERE_IS_JOBS="${color_red}*${color_off}";
+}
+
 function prompt_command {
     local PS1_GIT=
 
     get_git_stats
+    get_jobs_status
 
     if [ ! -z $GIT_CURRENT_BRANCH ]; then
         if [ -z $GIT_IS_DIRTY ]; then
@@ -111,7 +117,7 @@ function prompt_command {
         PS1_GIT="${PS1_GIT}]"
     fi
 
-    PS1="\[\e[0m\]${color_blue}\\h${color_off}:\\w${PS1_GIT}\\$ "
+    PS1="\[\e[0m\]${color_blue}\\h${color_off}:\\w${PS1_GIT}${THERE_IS_JOBS}\\$ "
 }
 
 export PROMPT_COMMAND=prompt_command
