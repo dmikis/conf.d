@@ -30,6 +30,10 @@ untracked = 81
 nobranch  = 161 bold
 
 [branch]
-    autosetuprebase = always
+autosetuprebase = always
+
 [gc]
-	auto = 0
+auto = 0
+
+[push]
+default = upstream
