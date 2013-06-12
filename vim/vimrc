@@ -51,3 +51,6 @@ set background=dark
 let g:solarized_termcolors=256
 let g:solarized_contrast='high'
 colorscheme solarized
+
+" Some TeX-specific settings
+au BufRead,BufNewFile *.tex setlocal textwidth=80
