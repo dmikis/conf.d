@@ -43,8 +43,11 @@ Bundle 'git://github.com/scrooloose/nerdtree'
 Bundle 'git://github.com/scrooloose/nerdcommenter'
 Bundle 'git://github.com/tarmolov/TabLineNumbers.vim'
 Bundle 'git://github.com/tomasr/molokai'
-Bundle 'git://github.com/vim-scripts/JavaScript-syntax'
+"Bundle 'git://github.com/vim-scripts/JavaScript-syntax'
 Bundle 'git://github.com/altercation/vim-colors-solarized.git'
+Bundle 'git://github.com/vim-scripts/glsl.vim.git'
+
+au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 
 syntax on
 set background=dark
@@ -54,3 +57,6 @@ colorscheme solarized
 
 " Some TeX-specific settings
 au BufRead,BufNewFile *.tex setlocal textwidth=80
+
+" @see http://superuser.com/questions/202848/backspace-key-not-working-in-vim
+set bs=indent,eol,start
