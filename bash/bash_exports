@@ -4,6 +4,10 @@ if [ $OS == "Darwin" ]; then
     export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 fi
 
+if [[ $(hostname) =~ "yandex" ]]; then
+    export PATH=/opt/nodejs/0.10/bin:$PATH
+fi
+
 # bash options
 export PROMPT_DIRTRIM=2 # show only last two dirs in \w placeholder
 
