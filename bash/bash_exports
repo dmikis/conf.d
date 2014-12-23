@@ -20,9 +20,6 @@ export EDITOR="vim"
 # pager
 export PAGER="less"
 
-# grep
-export GREP_OPTIONS="--color -R --exclude-dir=.git --exclude-dir=.svn"
-
 # for deb tools
 export DEBFULLNAME="Kirill Dmitrenko"
 export EMAIL="dmikis@yandex-team.ru"

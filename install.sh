@@ -8,9 +8,9 @@ cp -v bash/bash_exports ~/.bash_exports
 
 cp -v git/gitconfig     ~/.gitconfig
 
-cp -v screen/screenrc   ~/.screenrc
+#cp -v screen/screenrc   ~/.screenrc
 
-cp -v tmux/tmux.conf    ~/.tmux.conf
+#cp -v tmux/tmux.conf    ~/.tmux.conf
 
 cp -v vim/vimrc         ~/.vimrc
 
