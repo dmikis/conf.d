@@ -42,11 +42,10 @@ Bundle 'gmarik/vundle'
 Bundle 'git://github.com/scrooloose/nerdtree'
 Bundle 'git://github.com/scrooloose/nerdcommenter'
 Bundle 'git://github.com/tarmolov/TabLineNumbers.vim'
-Bundle 'git://github.com/tomasr/molokai'
-"Bundle 'git://github.com/vim-scripts/JavaScript-syntax'
 Bundle 'git://github.com/altercation/vim-colors-solarized.git'
 Bundle 'git://github.com/vim-scripts/glsl.vim.git'
 Bundle 'git://github.com/vim-scripts/widl.vim.git'
+Bundle 'git://github.com/vim-scripts/VimClojure.git'
 
 au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 
