@@ -9,4 +9,4 @@ alias vir='vim -R'
 alias dch='dch --distributor debian'
 alias debrelease='debrelease --nomail'
 
-alias grep='grep --color -R --exclude-dir=.git --exclude-dir=.svn'
+alias grep='grep --color --exclude-dir=.git --exclude-dir=.svn'

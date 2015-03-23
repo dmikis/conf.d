@@ -21,23 +21,8 @@ fi
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color) color_prompt=yes;;
+    xterm-256color) color_prompt=yes;;
 esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-# We have color support; assume it's compliant with Ecma-48
-# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-# a case would tend to support setf rather than setaf.)
-        color_prompt=yes
-    else
-        color_prompt=
-    fi
-fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -50,16 +35,17 @@ if [ -f /opt/local/etc/bash_completion ]; then
 fi
 
 # setup empty colors for warm tube terms...
+color_off=
 color_red=
 color_green=
 color_yellow=
 color_blue=
-color_off=
 if [ "$color_prompt" = yes ]; then
-    color_red='\[\033[38;05;161m\]'
-    color_green='\[\033[38;05;118m\]'
-    color_blue='\[\033[38;05;81m\]'
-    color_off='\[\033[38;05;255m\]'
+    color_off=$(tput sgr0)
+    color_red=$(tput setaf 9)
+    color_green=$(tput setaf 10)
+    color_yellow=$(tput setaf 11)
+    color_blue=$(tput setaf 12)
 fi
 unset color_prompt force_color_prompt
 
@@ -95,7 +81,7 @@ function get_git_stats {
 
 function get_jobs_status {
     THERE_IS_JOBS=""
-    [[ $(jobs 2> /dev/null | wc -l) -ne 0 ]] && THERE_IS_JOBS="${color_red}*${color_off}";
+    [[ $(jobs 2> /dev/null | wc -l) -ne 0 ]] && THERE_IS_JOBS="\[${color_red}\]*\[${color_off}\]";
 }
 
 function prompt_command {
@@ -106,18 +92,18 @@ function prompt_command {
 
     if [ ! -z $GIT_CURRENT_BRANCH ]; then
         if [ -z $GIT_IS_DIRTY ]; then
-            PS1_GIT="[${color_green}${GIT_CURRENT_BRANCH}"
+            PS1_GIT="[\[${color_green}\]${GIT_CURRENT_BRANCH}"
         else
-            PS1_GIT="[${color_red}${GIT_CURRENT_BRANCH}"
+            PS1_GIT="[\[${color_red}\]${GIT_CURRENT_BRANCH}"
         fi
-        PS1_GIT="${PS1_GIT}${color_off}"
+        PS1_GIT="${PS1_GIT}\[${color_off}\]"
         if [ $GIT_UNPUSHED_COMMITS_NUM -gt 0 ]; then
-            PS1_GIT="${PS1_GIT} ${color_red}${GIT_UNPUSHED_COMMITS_NUM}${color_off}"
+            PS1_GIT="${PS1_GIT} \[${color_red}\]${GIT_UNPUSHED_COMMITS_NUM}\[${color_off}\]"
         fi
         PS1_GIT="${PS1_GIT}]"
     fi
 
-    PS1="\[\e[0m\]${color_blue}\\h${color_off}:\\w${PS1_GIT}${THERE_IS_JOBS}\\$ "
+    PS1="\[${color_blue}\]\\h\[${color_off}\]:\\w${PS1_GIT}${THERE_IS_JOBS}\\$ "
 }
 
 export PROMPT_COMMAND=prompt_command
