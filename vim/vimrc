@@ -47,10 +47,12 @@ Bundle 'git://github.com/vim-scripts/glsl.vim.git'
 Bundle 'git://github.com/vim-scripts/widl.vim.git'
 Bundle 'git://github.com/vim-scripts/VimClojure.git'
 Bundle 'git://github.com/vim-scripts/opencl.vim.git'
+Bundle 'git://github.com/vim-scripts/vim-stylus.git'
 
 au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 au BufNewFile,BufRead *.idl setf widl
 au BufNewFile,BufRead *.cl setf opencl
+au BufNewFile,BufRead *.styl setf stylus
 
 syntax on
 set background=dark
