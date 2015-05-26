@@ -46,9 +46,11 @@ Bundle 'git://github.com/altercation/vim-colors-solarized.git'
 Bundle 'git://github.com/vim-scripts/glsl.vim.git'
 Bundle 'git://github.com/vim-scripts/widl.vim.git'
 Bundle 'git://github.com/vim-scripts/VimClojure.git'
+Bundle 'git://github.com/vim-scripts/opencl.vim.git'
 
 au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 au BufNewFile,BufRead *.idl setf widl
+au BufNewFile,BufRead *.cl setf opencl
 
 syntax on
 set background=dark
