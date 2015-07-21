@@ -22,6 +22,7 @@ fi
 case "$TERM" in
     xterm-color) color_prompt=yes;;
     xterm-256color) color_prompt=yes;;
+    screen-256color) color_prompt=yes;;
 esac
 
 # enable programmable completion features (you don't need to enable
