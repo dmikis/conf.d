@@ -10,3 +10,5 @@ alias dch='dch --distributor debian'
 alias debrelease='debrelease --nomail'
 
 alias grep='grep --color --exclude-dir=.git --exclude-dir=.svn'
+
+alias update_ssh_auth_sock='export $(tmux showenv | grep ^SSH_AUTH_SOCK)'
