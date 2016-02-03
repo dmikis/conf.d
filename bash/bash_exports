@@ -8,6 +8,8 @@ if [[ $(hostname) =~ "yandex" ]]; then
     export PATH=/opt/nodejs/0.10/bin:$PATH
 fi
 
+PATH=$HOME/bin:$PATH
+
 # bash options
 export PROMPT_DIRTRIM=2 # show only last two dirs in \w placeholder
 
