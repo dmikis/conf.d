@@ -108,3 +108,5 @@ function prompt_command {
 }
 
 export PROMPT_COMMAND=prompt_command
+
+ssh-add $HOME/.ssh/{id,yt}_rsa > /dev/null
